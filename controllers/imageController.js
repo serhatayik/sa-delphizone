@@ -1,12 +1,11 @@
 const express = require('express');
-var router = express.Router();
-const path = require('path');
 const mongoose = require('mongoose');
 const Image = mongoose.model('Image');
-const fileUpload = require('express-fileupload');
-var app= express();
-
+var router = express.Router();
 var UplaodPath='/public/images/';
+
+
+
 // GET işlemiyle geldiğinde addOrEdit Formumuzu basıyoruz!
 router.get('/addOrEdit',(req,res,next)=>{
     
@@ -30,6 +29,9 @@ router.post('/addOrEdit/:id',(req,res,next)=>{
         updateRecord(req,res);
         else
         insertRecord(req,res);
+});
+router.put('/addOrEdit/:id',(req,res,next)=>{
+        updateRecord(req,res);
 });
 
 // GET /list rotasından gelen istek için Tüm kayıtların listelendiği list.hbs sayfası render edilir.
@@ -125,7 +127,6 @@ function insertRecord(req,res){
 ///////////////////UPDATE////////////////
 function updateRecord(req,res){
     const id= req.params.id;
-    console.log('Güncelleme Başarılı' + "ID:"+id);
     Image.findOneAndUpdate({"_id":id},req.body, { useFindAndModify: false })
         .then(data => {
             if (!data) {
