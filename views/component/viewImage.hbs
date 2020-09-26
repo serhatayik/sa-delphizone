@@ -1,0 +1,20 @@
+
+<body>
+    
+    <div class="Fullcontainer">
+        {{#with list}}
+            <div class="imageFull">
+                <img src="{{this.url}}" id="{{this._id}}" >
+            </div>
+            <div class="imageFullname">
+                <p>{{this.name}}</p>
+                
+            </div>
+            <div class="viewMenu">
+                    <a href="/" class="btn btn-secondary"><i class="fa fa-arrow-left  "></i> Geri </a>
+                    <a href="/{{this.id}}" class="btn btn-info"><i class="fa fa-pencil"></i> Düzenle</a>
+                    <a href="/delete/{{this.id}}" class="btn btn-danger" onclick="return confirm('Silmek istediğinizden eminmisiniz ?');"><i class="fas fa-trash-alt"></i> Resmi Sil</a>
+                </div>
+        {{/with}}
+    </div>
+</body>

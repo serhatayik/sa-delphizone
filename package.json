@@ -1,0 +1,30 @@
+{
+  "name": "sa-nodeimagegalery",
+  "version": "1.0.0",
+  "description": "NodeJS-Express-MongoDB HoverBox Image Galery",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Serhat AYIK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delphizone/sa-nodeimagegalery/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.2.0",
+    "express-handlebars": "^3.1.0",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.10.5"
+  },
+  "devDependencies": {
+    "handlebars": "^4.5.0"
+  }
+}

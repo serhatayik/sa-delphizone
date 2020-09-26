@@ -1,0 +1,25 @@
+
+<head>
+    <title>Serhat AYIK - NodeJS Image Gallery</title>
+    <link rel="stylesheet" href='/../../public/css/hoverbox.css' type="text/css" media="screen, projection" />
+    <script type="text/javascript" src="/../../public/js/hoverboxPagination.js"></script>
+</head>
+
+<body >
+    <div class="page">
+        <ul class="hoverbox">
+        {{#each list}}
+            <li class="hoverbox-item">
+                    <div class="hoverbox-details">
+                        <a href="/view/{{this.id}}" >
+                            <img src="{{this.url}}" alt="{{this.name}}" id="{{this._id}}" />
+                            <label class="preview" id="previewName" >{{this.name}} </label>
+                            <img src="{{this.url}}" alt="{{this.name}}" id="{{this._id}}" class="preview"/>
+                        </a>
+                    </div>
+            </li>
+        {{/each}}
+        </ul>
+    </div>
+</body>
+</html>

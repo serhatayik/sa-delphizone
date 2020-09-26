@@ -1,0 +1,43 @@
+<div id="InsertContainer">
+    <div class="InsertTop"> 
+        <a class="btn btn-secondary" href="/"><i class="fas fa-home fa"></i> Ana Sayfa</a> 
+        <a class="btn btn-secondary" href="/addOrEdit"><i class="fa fa-plus"></i> Yeni Kayıt</a> 
+    </div>
+    <br>
+    <div class"listBody">
+        <div id="table-responsive" class="table-responsive">
+            <table id="tablo" class="table">
+                <thead>
+                    <tr>
+                        <th >Resim ID:</th>
+                        <th>Resim Yolu:</th>
+                        <th>Resim Adı:</th>
+                        <th>Ayarlar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each list}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td><img src="{{this.url}}" height="40px" width="40px"></td>
+                        <td>{{this.name}}</td>
+                        <td><a href="{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a> 
+                        
+                            <a href="/delete/{{this._id}}" onclick="return confirm('Silmek istediğinizden eminmisiniz ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>    
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </tfoot>
+            </table>
+    
+
+        </div>
+    </div>
+</div>
+<script src="../../public/js/list.js">
+</script>

@@ -1,0 +1,37 @@
+<script src="../../public/js/addOrEdit.js"></script> 
+ <div id="InsertContainer">
+    <div class="InsertTop"> 
+        
+        <a class="btn btn-secondary" href="/"><i class="fas fa-home fa"></i> Ana Sayfa</a> 
+        <a class="btn btn-secondary" href="/list"><i class="fa fa-list-alt"></i> Kayıtları Gör </a>
+           
+    </div>
+    <br>
+    
+    <div class="InsertBody">
+        <form id="postForm" action="/addOrEdit/{{viewId}}" method="post" autocomplete="off" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{{this.id}}">
+            <div class="form-group">
+                <h3>{{viewTitle}}</h3>
+                <div class="text-danger">
+                    {{image.urlError}}</div>
+            </div>
+            <div class="form-group">
+                <label for="fileUp" onclick="fileUpActive()"><i class="fa fa-upload" aria-hidden="true" ></i>Resim Yükle</label>
+                <input id="fileUp" onchange="ekleText()" name="fileUp" type="file" class="form-control" placeholder="Yüklenecek Resimi Seçin" value="" style="display:none" >
+                <input id="fileText" onkeydown="degistirText()" name="fileText" onclick="degistirText()" type="text" class="form-control" placeholder="Resim Adresini Girin" value="{{viewUrl}}" required>
+                <div class="text-danger">
+                    {{image.urlError}}</div>
+            </div>
+            <div class="form-group">
+                <label id="txtMsg"></label>
+                <input type="text" class="form-control" name="name" placeholder="Resim Adı" value="{{viewName}}">
+            </div>
+            <div class="form-group"><br>
+                <button type="submit" class="btn btn-info"><i class="fa fa-database"></i> Kaydet</button>
+                
+            </div>
+        </form>
+    </div>
+</div>
+
