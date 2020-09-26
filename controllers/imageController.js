@@ -30,6 +30,7 @@ router.post('/addOrEdit/:id',(req,res,next)=>{
         else
         insertRecord(req,res);
 });
+// PUT /addOrEdit/:id güncellemek için ekstradan Api desteği
 router.put('/addOrEdit/:id',(req,res,next)=>{
         updateRecord(req,res);
 });
@@ -92,6 +93,10 @@ router.get('/view/:id', (req,res,next) => {
 
 //Resmi silmek için delete rotasına gelen id li resim kayıttan silinir
 router.get('/delete/:id', (req,res,next) => {
+    deleteRecord(req.params.id,res);//DeleteRecord Functionu çağrı
+});
+//Resmi silmek için ekstradan api desteği
+router.delete('/delete/:id', (req,res,next) => {
     deleteRecord(req.params.id,res);//DeleteRecord Functionu çağrı
 });
 
