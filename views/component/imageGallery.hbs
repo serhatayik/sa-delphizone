@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../public/css/imageGallery.css">	
+</head>
+<body>
+
+<section class="gallery">
+	<div class="container">
+		<div class="title">
+			<h1>Gallery</h1>
+			
+		</div>
+		<div class="gallery-items">
+            {{#each list}}
+			<div class="item">
+				<a href="/view/{{this.id}}" >
+                <img src="{{this.url}}" alt="gallery"/>
+				
+				<div class="caption">
+					{{this.name}}
+				</div>
+                </a>
+			</div>
+             {{/each}}
+		</div>
+		<div class="pagination">
+			<div class="prev">Önceki</div>
+			<div class="page">Sayfa:  <span class="page-num"></span></div>
+			<div class="next">Sonraki</div>
+		</div>
+	</div>
+</section>
+
+<script src="../../public/js/imageGallery.js"></script>
+</body>
+</html>
+
+
+
