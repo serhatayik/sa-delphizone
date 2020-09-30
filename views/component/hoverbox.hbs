@@ -1,25 +1,38 @@
 
 <head>
     <title>Serhat AYIK - NodeJS Image Gallery</title>
-    <link rel="stylesheet" href='/../../public/css/hoverbox.css' type="text/css" media="screen, projection" />
-    <script type="text/javascript" src="/../../public/js/hoverboxPagination.js"></script>
+    <link rel="stylesheet" href='../../public/css/hoverbox.css' type="text/css" media="screen, projection" />
+    
 </head>
 
 <body >
-    <div class="page">
-        <ul class="hoverbox">
-        {{#each list}}
-            <li class="hoverbox-item">
-                    <div class="hoverbox-details">
-                        <a href="/view/{{this.id}}" >
-                            <img src="{{this.url}}" alt="{{this.name}}" id="{{this._id}}" />
-                            <label class="preview" id="previewName" >{{this.name}} </label>
-                            <img src="{{this.url}}" alt="{{this.name}}" id="{{this._id}}" class="preview"/>
-                        </a>
-                    </div>
-            </li>
-        {{/each}}
-        </ul>
-    </div>
+<section class="gallery">
+	<div class="container">
+		<div class="title">
+			<h1><a href="/addOrEdit/" ><i class="fa fa-plus-square-o" aria-hidden="true">Ekle</i></a></h1>
+		</div>
+		<div class="gallery-items">
+            {{#each list}}
+				<div class="item">
+					<a href="/view/{{this.id}}" >
+					<img src="{{this.url}}" alt="gallery"/>
+					<div class="caption">
+						{{this.name}}
+					</div>
+					</a>
+				</div>
+             {{/each}}
+		</div>
+		
+		<div class="pagination">
+			<div class="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i> Önceki</div>
+			<div class="page"><i class="fa fa-map-marker" aria-hidden="true"></i> Sayfa:  <span class="page-num"></span></div>
+			<div class="next"> Sonraki <i class="fa fa-chevron-right" aria-hidden="true"></i></div>
+		</div>
+	</div>
+</section>
+
+    
+<script src="../../public/js/hoverboxPagination.js"></script>
 </body>
 </html>
