@@ -30,7 +30,10 @@ router.post('/addOrEdit/:id',(req,res,next)=>{
         else
         insertRecord(req,res);
 });
+<<<<<<< HEAD
+=======
 // PUT /addOrEdit/:id güncellemek için ekstradan Api desteği
+>>>>>>> 18a46c0091ddfd594bd7150f96e9a2caebd2aa65
 router.put('/addOrEdit/:id',(req,res,next)=>{
         updateRecord(req,res);
 });
@@ -55,6 +58,18 @@ router.get('/',(req,res,next)=>{
     Image.find((err,docs)=>{
         if(!err) {
             res.render('component/hoverbox',{
+                list: docs
+            });
+        }
+        else{
+            console.log('Resimler yüklenirken bir hata meydana geldi.! : '+err);
+        }
+    });
+});
+router.get('/Gallery',(req,res,next)=>{
+    Image.find((err,docs)=>{
+        if(!err) {
+            res.render('component/imageGallery',{
                 list: docs
             });
         }
@@ -113,7 +128,7 @@ function insertRecord(req,res){
     image.name=req.body.name;
     image.save((err,doc)=>{
         if(!err)
-        res.redirect('/list');
+        res.redirect('/');
         else {
             if(err.name=='ValidationError'){
                 handleValidationError(err,req.body);
@@ -141,14 +156,12 @@ function updateRecord(req,res){
                 if (!req.files){
                     data.url=req.body.fileText; //URL olarak girilen resim yolu
                     data.name=req.body.name;
-                    console.log(data+'Güncelleme Başarılı' + "ID:"+id);
-                    res.redirect('/list');
+                    res.redirect('/view/'+id);
                     data.save();
                 }else
                     data.url=UplaodPath+req.body.fileText; // Upload Olarak gelen resim yolu
                     data.name=req.body.name;
-                    console.log(data+'Güncelleme Başarılı' + "ID:"+id);
-                    res.redirect('/list');
+                    res.redirect('/view/'+id);
                     data.save();
                     uploadImage(req,res); //uploadImage Functionu çağrı
             }
@@ -164,7 +177,7 @@ function uploadImage(req,res){
                 console.log(err);
                 return ;
             }
-            console.log("başarrılı");
+            console.log("Resim Yüklendi!");
             return;
         });  
 }
@@ -178,7 +191,7 @@ function deleteRecord(id,res) {
             
         } else {
             console.log(data+'Kayıt Silindi.' + "ID:"+id);
-            res.redirect('/list');
+            res.redirect('/');
             
         }
     });
